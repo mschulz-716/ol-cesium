@@ -86,6 +86,9 @@ class RasterSynchronizer extends olcsAbstractSynchronizer {
    */
   createSingleLayerCounterparts(olLayerWithParents) {
     const olLayer = olLayerWithParents.layer;
+    if (olLayer.get('noSync') === true) {
+      return null;
+    }
     const uid = getUid(olLayer).toString();
     const viewProj = this.view.getProjection();
     console.assert(viewProj);

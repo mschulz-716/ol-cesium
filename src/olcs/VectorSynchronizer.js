@@ -100,7 +100,7 @@ class VectorSynchronizer extends olcsAbstractSynchronizer {
    */
   createSingleLayerCounterparts(olLayerWithParents) {
     const olLayer = olLayerWithParents.layer;
-    if (!(olLayer instanceof olLayerVector) || olLayer instanceof olLayerVectorTile) {
+    if (!(olLayer instanceof olLayerVector) || olLayer instanceof olLayerVectorTile || olLayer.get('noSync') === true) {
       return null;
     }
     console.assert(olLayer instanceof olLayerLayer);
